@@ -1,0 +1,77 @@
+body {
+  background-color: #121212;
+}
+
+#app {
+  font-family: 'VT323', serif;
+  font-size: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  color: #4ef472;
+
+  --clock-size: 350px;
+  --clock-transform-origin: bottom;
+}
+
+.clock {
+  height: var(--clock-size);
+  width: var(--clock-size);
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #3f3f3f;
+  margin-top: 32px;
+  padding: 4px;
+}
+
+.clock::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3f3f3f;
+  width: 5px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+#second,
+#minute,
+#hour {
+  /* filter: blur(1px); */
+  border-radius: 12px;
+  font-size: 1em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 12px;
+  left: calc(50% - 9px);
+  bottom: 50.5%;
+  text-shadow: #121212 0 0 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#hour {
+  position: absolute;
+  color: #02f25e;
+  transform-origin: var(--clock-transform-origin);
+}
+
+#minute {
+  position: absolute;
+  color: #70f784;
+  transform-origin: var(--clock-transform-origin);
+}
+
+#second {
+  position: absolute;
+  color: #a1faa8;
+  transform-origin: var(--clock-transform-origin);
+}
